@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>shubhaGuard - URL Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="brand">🛡️ ShubhaGuard</div>
+    <span>Phishing URL Detection</span>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">CYBERSECURITY PROJECT</p>
+        <h1>Detect suspicious URLs before you click.</h1>
+        <p class="hero-text">
+          Enter a URL and ShubhaGuard analyzes common phishing indicators
+          such as insecure protocols, suspicious keywords, IP addresses,
+          URL shorteners, punycode and unusual domain structure.
+        </p>
+      </div>
+    </section>
+
+    <section class="card detector">
+      <form id="scanForm">
+        <label for="url">Website URL</label>
+        <div class="input-row">
+          <input id="url" type="text"
+                 placeholder="example.com/login"
+                 autocomplete="off" required>
+          <button type="submit" id="scanBtn">Analyze URL</button>
+        </div>
+        <p class="hint">Example: https://github.com/</p>
+      </form>
+      <div id="loading" class="loading hidden">Analyzing URL...</div>
+    </section>
+
+    <section id="result" class="card result hidden">
+      <div class="result-top">
+        <div>
+          <p class="eyebrow">ANALYSIS RESULT</p>
+          <h2 id="verdict"></h2>
+          <p id="domain" class="domain"></p>
+        </div>
+        <div id="scoreCircle" class="score-circle">
+          <span id="score">0</span><small>/100</small>
+        </div>
+      </div>
+
+      <div class="meter">
+        <div id="meterBar"></div>
+      </div>
+
+      <h3>Why?</h3>
+      <ul id="reasons"></ul>
+
+      <div class="note" id="note"></div>
+    </section>
+
+    <section class="features">
+      <div class="feature card">
+        <h3>🔎 Feature Analysis</h3>
+        <p>Checks URL structure and common phishing indicators.</p>
+      </div>
+      <div class="feature card">
+        <h3>⚡ REST API</h3>
+        <p>Frontend communicates with a Flask backend through JSON.</p>
+      </div>
+      <div class="feature card">
+        <h3>🛡️ Security insight </h3>
+        <p>Stay informed about potential threats and make safer decisions before visiting a URL.</p>
+      </div>
+    </section>
+
+    <footer>
+<p> <strong> © 2026 ShubhaGuard</strong> | All Rights Reserved |
+Secure. Scan. Stay Safe.</p>
+    </footer>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
